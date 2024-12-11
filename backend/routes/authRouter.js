@@ -6,7 +6,7 @@ const {protectRoute}=require('../middlewares/protect')
 
 router.post("/register",REGISTER)
 router.post("/login",LOGIN)
-router.get("/logout",LOGOUT)
+router.post("/logout",LOGOUT)
 router.get("/me",protectRoute,GETME)
 
 

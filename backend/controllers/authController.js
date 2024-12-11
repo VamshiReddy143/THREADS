@@ -83,7 +83,7 @@ exports.LOGIN=async(req,res,next)=>{
         }
 
 
-        const token=await jwt.sign({userId:user._id},process.env.JWT_SECRET,{expiresIn:"1d"})
+        const token=await jwt.sign({userId:user._id},process.env.JWT_SECRET,{expiresIn:"10d"})
 
 
         const SanitizeUser={

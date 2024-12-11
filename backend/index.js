@@ -4,7 +4,12 @@ const cors = require("cors");
 const cookieParser = require("cookie-parser");
 const  connectDB  = require("./config/db");
 const errorMiddleware = require("./middlewares/errorMiddleware");
+
+
+
 const authRouter = require("./routes/authRouter");
+const postRouter =require("./routes/postRouter")
+const userRouter=require("./routes/userRouter")
 
 // Load environment variables
 dotenv.config();
@@ -28,6 +33,8 @@ app.use(cors(corsOptions));
 
 //Routes
 app.use("/api/auth", authRouter);
+app.use("/api/posts",postRouter)
+app.use("/api/users",userRouter)
 
 // Global Error Handling Middleware
 app.use(errorMiddleware);

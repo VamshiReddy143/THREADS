@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import LoadingSpinner from '../components/LoadingSpinner';
 import axios from 'axios';
-import {toast,Toaster} from "react-hot-toast"
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 import { useNavigate,Link } from 'react-router-dom';
 import { setUser } from '../redux/authSlice';
+import { useDispatch } from 'react-redux';
 
 
 
@@ -15,6 +18,7 @@ const Login = () => {
     })
     const [loading,setLoading] =useState(false)
     const navigate=useNavigate()
+    const dispatch=useDispatch()
 
     const handleChange=(e)=>{
         setFormData({...formData,[e.target.name]:e.target.value})
@@ -31,12 +35,13 @@ const Login = () => {
             },
             withCredentials:true
           })
-            setUser(res.data?.user)
+            dispatch(setUser(res.data?.user))
             toast.success(res.data?.message  || "registered successfully")
             setFormData({
                 email: "",
                 password: "",
             })
+            navigate("/home")
                     
         } catch (error) {
             console.error(error.message)
@@ -84,7 +89,7 @@ const Login = () => {
           Don't have an account? <Link to="/"><span className='text-blue-500 cursor-pointer hover:underline'>SignUp</span></Link>
         </p>
       </div>
-      <Toaster/>
+      <ToastContainer/>
     </div>
    </form>
   );
