@@ -5,6 +5,7 @@ import { FaRegHeart } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { Link } from "react-router-dom"
 
 import { useDispatch, useSelector } from 'react-redux';
 import { setPosts } from '../redux/postSlice';
@@ -19,9 +20,9 @@ const Post = ({ post }) => {
 
 
   const [deleting, setDeleting] = useState(false);
-  const [liked, setLiked] = useState( post?.likes?.includes(user?._id) || false);
+  const [liked, setLiked] = useState(post?.likes?.includes(user?._id) || false);
   const [postLike, setPostLike] = useState(post?.likes?.length || 0);
-  const [liking, setLiking] = useState(false); 
+  const [liking, setLiking] = useState(false);
 
 
   //*Deleting the post
@@ -44,26 +45,26 @@ const Post = ({ post }) => {
   };
 
   //*LIKEUNLIKE the post
-  const likeUnlikePost=async(id)=>{
-  
-    try {
-        setLiking(true)
-        const res=await axios.post(`https://threads-1-1epq.onrender.com/api/posts/like/${post._id}`,{},{
-            withCredentials:true
-        })
-       
-        const updatedLikes = liked ? postLike - 1 : postLike + 1;
-        setPostLike(updatedLikes);    
-        setLiked(!liked);
+  const likeUnlikePost = async (id) => {
 
-        const updatedPosts=posts.map((p)=>p._id === id ? {...p,likes:liked ? p.likes.filter(uid => uid !==user._id): [...p.likes,user._id]} : p)    //* its checking if the paramas post id is equals to the postid that we are liking if yes its again checking it is liked or not if liked it is removing the user id from is if not keeping the post and userid as it is for another posts
-        dispatch(setPosts(updatedPosts));
-        toast.success(res.data?.message);
+    try {
+      setLiking(true)
+      const res = await axios.post(`https://threads-1-1epq.onrender.com/api/posts/like/${post._id}`, {}, {
+        withCredentials: true
+      })
+
+      const updatedLikes = liked ? postLike - 1 : postLike + 1;
+      setPostLike(updatedLikes);
+      setLiked(!liked);
+
+      const updatedPosts = posts.map((p) => p._id === id ? { ...p, likes: liked ? p.likes.filter(uid => uid !== user._id) : [...p.likes, user._id] } : p)    //* its checking if the paramas post id is equals to the postid that we are liking if yes its again checking it is liked or not if liked it is removing the user id from is if not keeping the post and userid as it is for another posts
+      dispatch(setPosts(updatedPosts));
+      toast.success(res.data?.message);
     } catch (error) {
-        console.error(error);
-        toast.error(error.response?.data?.message || 'Failed to update like');
-    }finally{
-        setLiking(false);
+      console.error(error);
+      toast.error(error.response?.data?.message || 'Failed to update like');
+    } finally {
+      setLiking(false);
     }
   }
 
@@ -74,25 +75,31 @@ const Post = ({ post }) => {
       {/* Post Header */}
       <div className="flex items-center justify-between mb-4">
         <div className="flex items-center gap-4">
-          <div className="avatar">
-            <div className="w-16 rounded-full overflow-hidden">
-              <img src={post?.user?.profileImg} alt="User avatar" />
+
+          <Link to={`/profile/${post.user?._id}`}>
+            <div className="avatar">
+              <div className="w-16 rounded-full overflow-hidden">
+                <img src={post?.user?.profileImg} alt="User avatar" />
+              </div>
             </div>
-          </div>
+          </Link>
           <div>
-            <strong className="text-lg">{post?.user?.fullName}</strong>
+
+            <Link to={`/profile/${post.user?._id}`}>
+              <strong className="text-lg">{post?.user?.fullName}</strong>
+            </Link>
             <p className="text-gray-400 text-sm">{new Date(post?.createdAt).toLocaleString()}</p>
-            
+
           </div>
         </div>
         {post?.user?._id === user?._id && (
           <div>
             {deleting ? (
-                <LoadingSpinner size="sm" />                 
+              <LoadingSpinner size="sm" />
             ) : (
-                <MdDelete
+              <MdDelete
                 className="text-xl cursor-pointer text-gray-400 hover:text-red-500 transition-colors"
-                onClick={() => deletePost(post._id)}/>
+                onClick={() => deletePost(post._id)} />
             )}
           </div>
         )}
@@ -110,26 +117,26 @@ const Post = ({ post }) => {
         )}
       </div>
       <div className="flex gap-2 items-center">
-                    <span className="cursor-pointer" onClick={() => likeUnlikePost(post?._id)}>
-                        {liking ? (
-                            <LoadingSpinner size="sm" />
-                        ) : liked ? (
-                            <FaHeart className="text-red-500" />
-                        ) : (
-                            <FaRegHeart className="text-gray-500" />
-                        )}
-                    </span>
-                    <span className="text-sm">{postLike}</span>
-                </div>
+        <span className="cursor-pointer" onClick={() => likeUnlikePost(post?._id)}>
+          {liking ? (
+            <LoadingSpinner size="sm" />
+          ) : liked ? (
+            <FaHeart className="text-red-500" />
+          ) : (
+            <FaRegHeart className="text-gray-500" />
+          )}
+        </span>
+        <span className="text-sm">{postLike}</span>
+      </div>
 
-                <div>
-                    <CommentSection  post={post}/>
-                </div>
+      <div>
+        <CommentSection post={post} />
+      </div>
 
       {/* Divider */}
       <div className="border-t border-gray-700 mt-4" />
 
-    
+
 
     </div>
   );

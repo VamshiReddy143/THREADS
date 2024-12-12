@@ -6,6 +6,7 @@ import axios from "axios";
 import LoadingSpinner from "../components/LoadingSpinner";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchPosts, setPosts } from '../redux/postSlice';
+import { Link } from 'react-router-dom';
 
 const CreatePost = () => {
     const [text, setText] = useState("");
@@ -70,7 +71,9 @@ const CreatePost = () => {
 
     return (
         <div className="p-4 max-w-4xl mx-auto bg-white rounded-xl shadow-md dark:bg-gray-800">
+            <Link  to={`/profile/${user?._id}`}>
             <div className="flex items-center mb-4">
+                
                 <div className="w-12 h-12 rounded-full overflow-hidden">
                     <img
                         src={user?.profileImg || "https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"}
@@ -82,6 +85,7 @@ const CreatePost = () => {
                     {user?.fullName || "User"}
                 </h2>
             </div>
+            </Link>
             <form onSubmit={handleSubmit} className="space-y-4">
                 <textarea
                     value={text}
