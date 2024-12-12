@@ -59,7 +59,7 @@ const Post = ({ post }) => {
 
       const updatedPosts = posts.map((p) => p._id === id ? { ...p, likes: liked ? p.likes.filter(uid => uid !== user._id) : [...p.likes, user._id] } : p)    //* its checking if the paramas post id is equals to the postid that we are liking if yes its again checking it is liked or not if liked it is removing the user id from is if not keeping the post and userid as it is for another posts
       dispatch(setPosts(updatedPosts));
-      toast.success(res.data?.message);
+      // toast.success(res.data?.message);
     } catch (error) {
       console.error(error);
       toast.error(error.response?.data?.message || 'Failed to update like');
