@@ -93,7 +93,7 @@ const Notifications = () => {
       </div>
       <div className="divider divider-horizontal divider-start"/>
       {/* Right Sidebar */}
-      <div className="w-full md:w-1/4 shadow-lg p-4">
+      <div className="w-full md:w-2/6 shadow-lg p-4">
         <RightSidebar otherUsers={otherUsers} />
       </div>
     </div>

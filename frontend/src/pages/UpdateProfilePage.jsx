@@ -376,7 +376,7 @@ const UpdateProfilePage = () => {
       </div>
 
       {/* Right Sidebar */}
-      <div className="hidden lg:block lg:w-[20%] ">
+      <div className="hidden lg:block w-2/6 ">
         <RightSidebar />
       </div>
       <ToastContainer />

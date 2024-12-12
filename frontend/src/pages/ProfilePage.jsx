@@ -37,14 +37,14 @@ const ProfilePage = () => {
   };
 
   return (
-    <div className="flex min-h-screen">
+    <div className="flex min-h-screen  ">
       {/* Left Sidebar */}
       <div className="w-full sm:w-1/5 min-h-screen">
         <LeftSidebar />
       </div>
 
       {/* Profile Section */}
-      <div className="flex-grow bg-gradient-to-b from-blue-50 to-white">
+      <div className="flex-grow bg-gradient-to-b mt-10 rounded-xl from-blue-50 to-white ">
         <div className="lg:w-[70%] mx-auto border-l border-r border-gray-200 min-h-screen">
           {/* Header Section */}
           <div className="flex items-center py-3 px-4  sticky top-0 z-10 border-b  shadow-sm">
@@ -132,7 +132,7 @@ const ProfilePage = () => {
       </div>
 
       {/* Right Sidebar */}
-      <div className="w-full sm:w-1/5 min-h-screen">
+      <div className="w-full sm:w-2/6 min-h-screen">
         <RightSidebar otherUsers={otherUsers} />
       </div>
     </div>

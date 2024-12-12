@@ -46,7 +46,7 @@ const LeftSidebar = () => {
   };
 
   return (
-    <div className="w-20  text-white flex flex-col items-center py-6 fixed left-0 top-0 h-full space-y-8 shadow-lg">
+    <div className="w-20 ml-5   text-white flex flex-col items-center py-6 fixed left-0 top-0 h-full space-y-8 shadow-lg">
       {/* Logo */}
       <div className="flex justify-center mb-6">
         <img width={"60px"} src="https://www.edigitalagency.com.au/wp-content/uploads/Threads-app-logo-white-png-transparent.png" alt="Logo" />

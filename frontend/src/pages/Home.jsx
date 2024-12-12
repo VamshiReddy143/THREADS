@@ -16,13 +16,13 @@ const Home = () => {
       </div>
 
       {/* Main Content (Middle Posts Area) */}
-      <div className=" bg-gray-600 p-4 w-full max-w-4xl mx-auto min-h-screen">
+      <div className=" bg-gray-600 p-4 w-full max-w-4xl mx-auto min-h-screen rounded-xl">
         <div className="divider" />
         <Posts />
       </div>
 
       {/* Right Sidebar */}
-      <div className="w-full sm:w-1/5  min-h-screen">
+      <div className="w-full sm:w-2/6   min-h-screen">
         <RightSidebar otherUsers={otherUsers} />
       </div>
     </div>

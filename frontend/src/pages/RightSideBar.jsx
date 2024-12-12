@@ -30,7 +30,7 @@ const RightSidebar = ({ id }) => {
     .slice(0, 5);
 
   return (
-    <div className="ml-4 fixed top-0 right-0 w-full md:w-[20%] bg-white rounded-lg shadow-xl p-4">
+    <div className="ml-4 fixed top-0 mr-40 right-0 w-full md:w-[20%] bg-white rounded-lg shadow-xl p-4">
       {/* Search Box */}
       <div className="flex items-center p-3 bg-gray-100 rounded-full shadow-md mb-4">
         <CiSearch size="20px" className="text-gray-500" />

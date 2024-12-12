@@ -1,0 +1,31 @@
+/* Default Desktop Layout */
+#body {
+    display: flex;
+    flex-direction: row; /* Sidebars on left and right, posts in the center */
+  }
+  
+  /* Mobile Layout */
+  @media (max-width: 768px) {
+    #body {
+      flex-direction: column; /* Stack everything vertically */
+    }
+  
+    #sugg {
+      order: -1; /* Move right sidebar to the top */
+    }
+  
+    #left {
+      order: 2; /* Move left sidebar to the bottom */
+      display: flex;
+      justify-content: center; /* Center icons horizontally */
+      gap: 20px; /* Add spacing between icons */
+      flex-wrap: wrap; /* Allow items to wrap horizontally */
+      padding: 10px;
+      background-color: #1a202c; /* Optional: make it stand out visually */
+    }
+  
+    #left .w-20 {
+      flex: 0 1 auto; /* Icons adjust their size automatically */
+    }
+  }
+  

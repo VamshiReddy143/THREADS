@@ -69,7 +69,7 @@ const CreatePost = () => {
     };
 
     return (
-        <div className="p-4 max-w-xl mx-auto bg-white rounded-lg shadow-md dark:bg-gray-800">
+        <div className="p-4 max-w-4xl mx-auto bg-white rounded-xl shadow-md dark:bg-gray-800">
             <div className="flex items-center mb-4">
                 <div className="w-12 h-12 rounded-full overflow-hidden">
                     <img
