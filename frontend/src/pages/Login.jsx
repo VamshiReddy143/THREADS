@@ -29,7 +29,7 @@ const Login = () => {
         e.preventDefault()
         setLoading(true)
         try {
-          const res=await axios.post("http://localhost:5000/api/auth/login",formData,{
+          const res=await axios.post("https://threads-1-1epq.onrender.com/api/auth/login",formData,{
             headers:{
                 "Content-Type":"application/json"
             },

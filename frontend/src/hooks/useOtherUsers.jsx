@@ -9,7 +9,7 @@ const useOtherUsers = (id) => {
     useEffect(()=>{
         const fetchOtherUsers=async()=>{
             try {
-                const res=await axios.get(`http://localhost:5000/api/users/suggested/${id}`,{
+                const res=await axios.get(`https://threads-1-1epq.onrender.com/api/users/suggested/${id}`,{
                     withCredentials:true
                 })
                 dispatch(getOtherUsers(res.data?.otherUsers))

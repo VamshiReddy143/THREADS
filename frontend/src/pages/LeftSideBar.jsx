@@ -20,7 +20,7 @@ const LeftSidebar = () => {
   useEffect(() => {
     const checkNewNotifications = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/api/users/notifications", { withCredentials: true });
+        const res = await axios.get("https://threads-1-1epq.onrender.com/api/users/notifications", { withCredentials: true });
         setNewNotifications(res.data.notifications.length > 0);
       } catch (error) {
         console.error("Error fetching notifications:", error);
@@ -33,7 +33,7 @@ const LeftSidebar = () => {
   const handleLogout = async () => {
     try {
       setLoading(true);
-      const res = await axios.post("http://localhost:5000/api/auth/logout", {}, { withCredentials: true });
+      const res = await axios.post("https://threads-1-1epq.onrender.com/api/auth/logout", {}, { withCredentials: true });
       dispatch(setUser(""));
       toast.success(res.data?.message || "Successfully logged out.");
       navigate("/login");

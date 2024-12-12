@@ -44,7 +44,7 @@ const CreatePost = () => {
             if (text.trim()) formData.append("text", text);
             if (img) formData.append("img", img);
 
-            const res = await axios.post("http://localhost:5000/api/posts/create", formData, {
+            const res = await axios.post("https://threads-1-1epq.onrender.com/api/posts/create", formData, {
                 headers: { "Content-Type": "application/json" },
                 withCredentials: true,
             });

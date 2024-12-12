@@ -28,7 +28,7 @@ const Post = ({ post }) => {
   const deletePost = async (postid) => {
     try {
       setDeleting(true);
-      const res = await axios.delete(`http://localhost:5000/api/posts/delete/${post?._id}`, {
+      const res = await axios.delete(`https://threads-1-1epq.onrender.com/api/posts/delete/${post?._id}`, {
         headers: { "Content-Type": "application/json" },
         withCredentials: true,
       });
@@ -48,7 +48,7 @@ const Post = ({ post }) => {
   
     try {
         setLiking(true)
-        const res=await axios.post(`http://localhost:5000/api/posts/like/${post._id}`,{},{
+        const res=await axios.post(`https://threads-1-1epq.onrender.com/api/posts/like/${post._id}`,{},{
             withCredentials:true
         })
        

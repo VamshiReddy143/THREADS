@@ -14,7 +14,7 @@ const useGetUserProfile = (id) => {
                     console.error("ID is undefined or null, skipping fetch");
                     return;
                 }
-                const res=await axios.get(`http://localhost:5000/api/users/profile/${id}`,{
+                const res=await axios.get(`https://threads-1-1epq.onrender.com/api/users/profile/${id}`,{
                    
                     withCredentials:true
                 })

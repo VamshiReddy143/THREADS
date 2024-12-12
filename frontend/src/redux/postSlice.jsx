@@ -8,7 +8,7 @@ export const fetchPosts=createAsyncThunk("posts/fetchposts",async(filterType,{ge
     const {user} =getState().auth    //*getstate is used to get the state of another slice
   
     try {
-        const res=await axios.get("http://localhost:5000/api/posts/all",{
+        const res=await axios.get("https://threads-1-1epq.onrender.com/api/posts/all",{
             params:{userId:user._id,filterType},   //*we are passing it through params and receiving at backend for "for you" and "following"  posts
             headers:{"Content-Type" : "application/json"},
             withCredentials:true

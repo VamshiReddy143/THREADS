@@ -26,7 +26,7 @@ const CommentSection = ({ post }) => {
     try {
       setLoading(true);
 
-      const res = await axios.post(`http://localhost:5000/api/posts/comment/${post._id}`, { text }, { withCredentials: true });
+      const res = await axios.post(`https://threads-1-1epq.onrender.com/api/posts/comment/${post._id}`, { text }, { withCredentials: true });
       const newComment = res.data?.comment;
       const updatedComments = [newComment, ...post.comments];
 

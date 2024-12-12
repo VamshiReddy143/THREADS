@@ -20,8 +20,8 @@ const ProfilePage = () => {
   const followAndUnfollowUser = async () => {
     try {
       const endpoint = user.following.includes(id)
-        ? `http://localhost:5000/api/users/Unfollow/${id}`
-        : `http://localhost:5000/api/users/follow/${id}`;
+        ? `https://threads-1-1epq.onrender.com/api/users/Unfollow/${id}`
+        : `https://threads-1-1epq.onrender.com/api/users/follow/${id}`;
       const res = await axios.post(
         endpoint,
         { id: user?._id },

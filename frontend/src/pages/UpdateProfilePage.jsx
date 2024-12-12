@@ -284,7 +284,7 @@ const UpdateProfilePage = () => {
       }
 
       const res = await axios.post(
-        "http://localhost:5000/api/users/update",
+        "https://threads-1-1epq.onrender.com/api/users/update",
         formDataToSend,
         {
           headers: { "Content-Type": "application/json" },

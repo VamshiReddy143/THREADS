@@ -14,7 +14,7 @@ const Notifications = () => {
   useEffect(() => {
     const fetchNotifications = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/api/users/notifications", {
+        const res = await axios.get("https://threads-1-1epq.onrender.com/api/users/notifications", {
           withCredentials: true,
         });
         setNotifications(res.data.notifications);

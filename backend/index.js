@@ -30,7 +30,7 @@ app.use(cookieParser());
 
 // CORS setup
 const corsOptions = {
-  origin: "http://localhost:5173", // Adjust to your frontend URL
+  origin: "https://threads-1-1epq.onrender.com", // Adjust to your frontend URL
   credentials: true,
 };
 app.use(cors(corsOptions));

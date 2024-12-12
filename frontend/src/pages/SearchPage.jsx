@@ -9,7 +9,7 @@ const SearchPage = () => {
   const handleSearch = async () => {
     if (!searchQuery) return; // Don't search if query is empty
     try {
-      const res = await axios.get(`http://localhost:5000/api/users/search?query=${searchQuery}`);
+      const res = await axios.get(`https://threads-1-1epq.onrender.com/api/users/search?query=${searchQuery}`);
       setSearchResults(res.data.users); // Update results
     } catch (error) {
       console.error("Error fetching search results:", error.message);
