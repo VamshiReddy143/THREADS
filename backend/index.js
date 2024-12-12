@@ -4,6 +4,7 @@ const cors = require("cors");
 const cookieParser = require("cookie-parser");
 const  connectDB  = require("./config/db");
 const errorMiddleware = require("./middlewares/errorMiddleware");
+const path=require("path")
 
 
 
@@ -18,6 +19,9 @@ dotenv.config();
 const PORT = process.env.PORT || 5000;
 
 const app = express();
+
+
+const _dirname=path.resolve()
 
 // Middleware
 app.use(express.json({ limit: "5mb" }));
@@ -38,6 +42,12 @@ app.use("/api/users",userRouter)
 
 // Global Error Handling Middleware
 app.use(errorMiddleware);
+
+
+app.use(express.static(path.join(_dirname,"/frontend/dist")))
+app.get('*',(_,res)=>{
+  res.sendFile(path.resolve(_dirname,"frontend","dist","index.html"))
+})
 
 // Start server
 app.listen(PORT, () => {

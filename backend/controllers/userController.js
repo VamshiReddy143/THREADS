@@ -95,7 +95,7 @@ exports.UNFOLLOW = async (req, res) => {
 exports.GET_SUGESTED_USERS = async (req, res) => {
   try {
     const { id } = req.params;
-    console.log("Received user ID: ", id);
+   
 
     if (!id) {
       return res.status(400).json({ error: "User ID is required" });
@@ -104,7 +104,7 @@ exports.GET_SUGESTED_USERS = async (req, res) => {
       .find({ id: { $ne: id } })
       .select("-password");
 
-     console.log(otherUsers)
+     
      // Check if no other users exist
      if (otherUsers.length === 0) {
       return res.status(404).json({

@@ -86,7 +86,7 @@ exports.GETALLPOSTS = async (req, res, next) => {
 exports.DELETEPOST = async (req, res, next) => {
   try {
     const post = await postModel.findById(req.params.id);
-    console.log(post);
+    
 
     if (!post) {
       return res.status(400).json({ message: "Post not found" });

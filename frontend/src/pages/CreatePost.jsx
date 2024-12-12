@@ -19,7 +19,7 @@ const CreatePost = () => {
     const dispatch = useDispatch();
     const { posts } = useSelector((store) => store.posts);
     const { user } = useSelector((store) => store.auth);
-    
+
 
     const handleImageChange = (e) => {
         const selectedFile = e.target.files[0];
@@ -49,13 +49,13 @@ const CreatePost = () => {
                 withCredentials: true,
             });
             dispatch(setPosts([res.data?.newpost, ...posts]));    //*to show latest posts at top without distrubing recent posts
-            
-           
-            toast.success(res.data?.message);
-            dispatch(fetchPosts(posts))
 
-           
-          
+
+            toast.success(res.data?.message);
+            dispatch(fetchPosts("foryou"))
+
+
+
             setText("");
             setImg(null);
             setFile(null);
@@ -136,7 +136,10 @@ const CreatePost = () => {
                     </button>
                 </div>
             </form>
+
            
+
+
         </div>
     );
 };

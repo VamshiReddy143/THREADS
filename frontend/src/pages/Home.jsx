@@ -16,7 +16,7 @@ const Home = () => {
       </div>
 
       {/* Main Content (Middle Posts Area) */}
-      <div className=" bg-gray-600 p-4 w-full max-w-4xl mx-auto min-h-screen rounded-xl">
+      <div className=" bg-gray-600 p-4 w-full max-w-4xl mt-5 mx-auto min-h-screen rounded-xl">
         <div className="divider" />
         <Posts />
       </div>
